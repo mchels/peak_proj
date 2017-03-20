@@ -17,7 +17,7 @@ def construct_data_and_labels(n_samples, noise_amplitude=0.01, n_points=101):
         temp = peak_poss_out + 0.5*np.sign(peak_poss_out-0.5)
         params[n_peaks_in*3::3] = temp
         y_vals = sum_of_func(lorentzian_no_base, x_vals, *params)
-        y_vals += noise_amplitude * rnd.normal(size=y_vals.size)
+        y_vals += noise_amplitude * rnd.normal(size=y_vals.shape)
         data[i] = y_vals
 #         labels[i] = 1
 #         labels[i,n_peaks_in-1] = 1# For 1vs2 peaks.
@@ -40,7 +40,7 @@ def make_cat_data_and_labels(n_samples, n_max_peaks, noise_amplitude=0.01, n_poi
         temp = peak_poss_out + 0.5*np.sign(peak_poss_out-0.5)
         params[n_peaks_in*3::3] = temp
         y_vals = sum_of_func(lorentzian_no_base, x_vals, *params)
-        y_vals += noise_amplitude * rnd.normal(size=y_vals.size)
+        y_vals += noise_amplitude * rnd.normal(size=y_vals.shape)
         data[i] = y_vals
 #         labels[i] = 1
 #         labels[i,n_peaks_in-1] = 1# For 1vs2 peaks.
